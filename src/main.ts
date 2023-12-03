@@ -1,0 +1,90 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
+import { setupPreviewForm } from "./compControllers/previewForm";
+import { setupNewRowButton } from "./compControllers/addNewRowButton";
+import addParamRow from "./utils/addParamRow";
+import { baseUrl, params } from "./global";
+import { setupImportButton } from "./compControllers/importButton";
+
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
+<div class="container mt-5">
+  <form class="container border rounded-1 p-2" id="preview-form">
+    <div class="mb-4">
+      <label for="base-url" class="form-label">API base URL</label>
+      <div class="form-floating">
+        <input
+          name="baseurl"
+          type="text"
+          class="form-control"
+          id="base-url"
+          value="${baseUrl}"
+          placeholder="asdf.com/api"
+        />
+        <label for="base-url">base url</label>
+      </div>
+
+      <div class="container btn-group p-0 mt-2">
+        <button
+          class="btn btn-outline-secondary border-0 border-top border-bottom"
+          type="button"
+          id="import-btn"
+          data-bs-toggle="modal"
+          data-bs-target="#import-modal"
+        >
+          <span class="bi bi-box-arrow-in-down" />
+          Import
+        </button>
+        <button class="btn btn-outline-secondary border-0 border-top border-bottom" type="button" id="export-btn">
+          <span class="bi bi-box-arrow-up" />
+          Export
+        </button>
+      </div>
+    </div>
+    <div id="params-input-container">
+      <label class="form-label">API query strings (parameters)</label>
+    </div>
+    <div class="input-group mt-3">
+      <div class="col-3">
+        <input type="text" id="new-param-key" class="form-control bg-body-tertiary rounded-end-0" />
+      </div>
+      <div class="col">
+        <input type="text" id="new-param-value" class="form-control rounded-start-0" />
+      </div>
+      <button type="button" id="new-param-btn" class="btn btn-secondary">
+        Apply
+      </button>
+    </div>
+    <hr />
+    <button class="btn btn-primary col-12">Update!</button>
+  </form>
+  <div class="container border rounded-1 p-0">
+    <img alt="result image" id="preview-img" src="" class="col-12" />
+  </div>
+</div>
+`;
+
+const paramsInputContainer = document.getElementById("params-input-container") as HTMLDivElement;
+const newParamBtn = document.getElementById("new-param-btn") as HTMLButtonElement;
+setupNewRowButton(newParamBtn, paramsInputContainer);
+
+params.forEach((key) => addParamRow(key, "", paramsInputContainer));
+
+const previewForm = document.getElementById("preview-form") as HTMLFormElement;
+const previewImg = document.getElementById("preview-img") as HTMLImageElement;
+setupPreviewForm(previewForm, previewImg);
+
+const importUrlBtn = document.getElementById("import-url-btn") as HTMLButtonElement;
+setupImportButton(importUrlBtn, paramsInputContainer);
+
+const exportBtn = document.getElementById("export-btn") as HTMLButtonElement;
+exportBtn.addEventListener("click", () => {
+  const url = new URL(baseUrl);
+  params.forEach((key) => {
+    const value = (document.getElementById(`param-${key}-value`) as HTMLInputElement).value;
+    url.searchParams.append(key, value);
+  });
+  navigator.clipboard.writeText(url.toString());
+  alert(`Copied to clipboard: ${url}`);
+});

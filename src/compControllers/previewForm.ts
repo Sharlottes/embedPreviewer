@@ -9,7 +9,6 @@ export function setupPreviewForm(previewForm: HTMLFormElement, previewImg: HTMLI
       .join("&");
     const submitButton = e.submitter as HTMLButtonElement;
 
-    console.log(queries);
     submitButton.disabled = true;
     // cache button inner html
     const buttonInnerHTML = submitButton.innerHTML;

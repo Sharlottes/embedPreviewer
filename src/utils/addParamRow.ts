@@ -4,8 +4,20 @@ export default function addParamRow(key: string, value: string, targetElem: HTML
   params.add(key);
   const newParam = /*html*/ `
     <div class="input-group mb-1" id="param-${key}">
-      <span class="input-group-text col-3" id="param-${key}-key">${key}</span>
-      <input name=${key} type="text" class="form-control col" id="param-${key}-value" aria-describedby="param-${value}-key" value="${value}">
+      <span id="param-${key}-key" title="${key}" class="input-group-text col-3 d-none d-sm-inline">${key}</span>
+      <input name=${key} type="text" id="param-${key}-value" value="${value}" aria-describedby="param-${value}-key" class="form-control col d-none d-sm-inline-block">
+      <div class="form-floating d-block d-sm-none col">
+        <input 
+          name=${key} 
+          type="text" 
+          id="param-${key}-value" 
+          value="${value}" 
+          aria-describedby="param-${key}-key" 
+          class="form-control"
+          placeholder="asdf"
+        >
+        <label id="param-${key}-key" title="${key}" for="param-${key}-value">${key}</label>
+      </div>
       <button type="button" class="btn btn-danger" id="remove-param-btn-${key}">
         <i class="bi bi-x"></i>
       </button>

@@ -7,6 +7,7 @@ import { setupNewRowButton } from "./compControllers/addNewRowButton";
 import addParamRow from "./utils/addParamRow";
 import { baseUrl, params } from "./global";
 import { setupImportButton } from "./compControllers/importButton";
+import { setupExportButton } from "./compControllers/exportButton";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
 <div>
@@ -93,12 +94,4 @@ const importUrlBtn = document.getElementById("import-url-btn") as HTMLButtonElem
 setupImportButton(importUrlBtn, paramsInputContainer);
 
 const exportBtn = document.getElementById("export-btn") as HTMLButtonElement;
-exportBtn.addEventListener("click", () => {
-  const url = new URL(baseUrl);
-  params.forEach((key) => {
-    const value = (document.getElementById(`param-${key}-value`) as HTMLInputElement).value;
-    url.searchParams.append(key, value);
-  });
-  navigator.clipboard.writeText(url.toString());
-  alert(`Copied to clipboard: ${url}`);
-});
+setupExportButton(exportBtn);

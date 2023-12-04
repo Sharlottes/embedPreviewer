@@ -68,9 +68,12 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
   
   <hr class="mt-5" />
   <p class="m-3">
-    <i class="bi bi-github fs-5"></i>
-    <a class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-offset-2-hover">
-      https://github.com/Sharlottes/embedPreviewer
+    <span class="bi bi-github fs-5"></span>
+    <a 
+      href="https://github.com/Sharlottes/embedPreviewer"
+      class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-offset-2-hover"
+    >
+      Github Repository
     </a>
   </p>
 </div>

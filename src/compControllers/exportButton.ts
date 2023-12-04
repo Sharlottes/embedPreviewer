@@ -1,8 +1,8 @@
-import { baseUrl, params } from "../global";
+import { params } from "../global";
 
-export function setupExportButton(exportBtn: HTMLButtonElement) {
+export function setupExportButton(baseUrlInput: HTMLInputElement, exportBtn: HTMLButtonElement) {
   exportBtn.addEventListener("click", () => {
-    const url = new URL(baseUrl);
+    const url = new URL(baseUrlInput.value);
     params.forEach((key) => {
       const value = (document.getElementById(`param-${key}-value`) as HTMLInputElement).value;
       url.searchParams.append(key, value);

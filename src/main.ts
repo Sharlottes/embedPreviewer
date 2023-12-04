@@ -5,7 +5,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { setupPreviewForm } from "./compControllers/previewForm";
 import { setupNewRowButton } from "./compControllers/addNewRowButton";
 import addParamRow from "./utils/addParamRow";
-import { baseUrl, params } from "./global";
+import { params } from "./global";
 import { setupImportButton } from "./compControllers/importButton";
 import { setupExportButton } from "./compControllers/exportButton";
 
@@ -22,7 +22,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
             type="text"
             class="form-control"
             id="base-url"
-            value="${baseUrl}"
+            value="https://"
             placeholder="asdf.com/api"
           />
           <label for="base-url">base url</label>
@@ -93,5 +93,6 @@ setupPreviewForm(previewForm, previewImg);
 const importUrlBtn = document.getElementById("import-url-btn") as HTMLButtonElement;
 setupImportButton(importUrlBtn, paramsInputContainer);
 
+const baseUrlInput = document.getElementById("base-url") as HTMLInputElement;
 const exportBtn = document.getElementById("export-btn") as HTMLButtonElement;
-setupExportButton(exportBtn);
+setupExportButton(baseUrlInput, exportBtn);

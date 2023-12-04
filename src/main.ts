@@ -12,8 +12,8 @@ import { setupExportButton } from "./compControllers/exportButton";
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
 <div>
   <h1 class="text-center m-3"> Embed Previewer </h1>
-  <div class="container">
-    <form class="container border rounded-1 p-2" id="preview-form">
+  <div class="ms-auto me-auto d-flex gap-3 flex-wrap justify-content-center align-items-center">
+    <form class="border rounded-1 p-2" id="preview-form">
       <div class="mb-4">
         <label for="base-url" class="form-label">API base URL</label>
         <div class="form-floating">
@@ -62,7 +62,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
       <hr />
       <button class="btn btn-primary col-12">Update!</button>
     </form>
-    <div class="container border rounded-1 p-0">
+    <div class="border rounded-1 p-0">
       <img alt="result image" id="preview-img" src="" class="col-12" />
     </div>
   </div>

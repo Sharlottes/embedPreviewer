@@ -1,2 +1,2 @@
-export let baseUrl = "https://github-readme-stats-sharlottes.vercel.app/api";
-export const params = new Set(["username"]);
+export let baseUrl = "https://";
+export const params = new Set<string>();

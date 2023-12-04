@@ -39,7 +39,13 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
             <span class="bi bi-box-arrow-in-down" />
             Import
           </button>
-          <button class="btn btn-outline-secondary border-0 border-top border-bottom" type="button" id="export-btn">
+          <button 
+            class="btn btn-outline-secondary border-0 border-top border-bottom" 
+            type="button" 
+            id="export-btn" 
+            data-bs-toggle="modal"
+            data-bs-target="#export-modal"
+          >
             <span class="bi bi-box-arrow-up" />
             Export
           </button>

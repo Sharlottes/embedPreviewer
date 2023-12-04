@@ -43,6 +43,28 @@
         </div>
       </div>
     </div>
+
+    <div
+      class="modal fade"
+      id="export-modal"
+      aria-hidden="true"
+      aria-labelledby="export modal"
+      aria-describedby="the export modal for the embed API base-url"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">API URL Exported</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer container">
+            <button type="button" id="import-url-btn" class="btn btn-primary col" data-bs-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>

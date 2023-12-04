@@ -8,6 +8,9 @@ export function setupExportButton(baseUrlInput: HTMLInputElement, exportBtn: HTM
       url.searchParams.append(key, value);
     });
     navigator.clipboard.writeText(url.toString());
-    alert(`Copied to clipboard: ${url}`);
+    document.querySelector("#export-modal  .modal-body")!.innerHTML = /*html*/ `
+      <p>URL copied to clipboard:</p>
+      <a href="${url.toString()}" target="_blank" rel="noopener noreferrer" class="text-break">${url.toString()}</a>
+    `;
   });
 }

@@ -9,59 +9,69 @@ import { baseUrl, params } from "./global";
 import { setupImportButton } from "./compControllers/importButton";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
-<div class="container mt-5">
-  <form class="container border rounded-1 p-2" id="preview-form">
-    <div class="mb-4">
-      <label for="base-url" class="form-label">API base URL</label>
-      <div class="form-floating">
-        <input
-          name="baseurl"
-          type="text"
-          class="form-control"
-          id="base-url"
-          value="${baseUrl}"
-          placeholder="asdf.com/api"
-        />
-        <label for="base-url">base url</label>
-      </div>
+<div>
+  <div class="container mt-5">
+    <form class="container border rounded-1 p-2" id="preview-form">
+      <div class="mb-4">
+        <label for="base-url" class="form-label">API base URL</label>
+        <div class="form-floating">
+          <input
+            name="baseurl"
+            type="text"
+            class="form-control"
+            id="base-url"
+            value="${baseUrl}"
+            placeholder="asdf.com/api"
+          />
+          <label for="base-url">base url</label>
+        </div>
 
-      <div class="container btn-group p-0 mt-2">
-        <button
-          class="btn btn-outline-secondary border-0 border-top border-bottom"
-          type="button"
-          id="import-btn"
-          data-bs-toggle="modal"
-          data-bs-target="#import-modal"
-        >
-          <span class="bi bi-box-arrow-in-down" />
-          Import
+        <div class="container btn-group p-0 mt-2">
+          <button
+            class="btn btn-outline-secondary border-0 border-top border-bottom"
+            type="button"
+            id="import-btn"
+            data-bs-toggle="modal"
+            data-bs-target="#import-modal"
+          >
+            <span class="bi bi-box-arrow-in-down" />
+            Import
+          </button>
+          <button class="btn btn-outline-secondary border-0 border-top border-bottom" type="button" id="export-btn">
+            <span class="bi bi-box-arrow-up" />
+            Export
+          </button>
+        </div>
+      </div>
+      <div id="params-input-container">
+        <label class="form-label">API query strings (parameters)</label>
+      </div>
+      <div class="input-group mt-3">
+        <div class="col-3">
+          <input type="text" id="new-param-key" class="form-control bg-body-tertiary rounded-end-0" />
+        </div>
+        <div class="col">
+          <input type="text" id="new-param-value" class="form-control rounded-start-0" />
+        </div>
+        <button type="button" id="new-param-btn" class="btn btn-secondary">
+          Apply
         </button>
-        <button class="btn btn-outline-secondary border-0 border-top border-bottom" type="button" id="export-btn">
-          <span class="bi bi-box-arrow-up" />
-          Export
-        </button>
       </div>
+      <hr />
+      <button class="btn btn-primary col-12">Update!</button>
+    </form>
+    <div class="container border rounded-1 p-0">
+      <img alt="result image" id="preview-img" src="" class="col-12" />
     </div>
-    <div id="params-input-container">
-      <label class="form-label">API query strings (parameters)</label>
-    </div>
-    <div class="input-group mt-3">
-      <div class="col-3">
-        <input type="text" id="new-param-key" class="form-control bg-body-tertiary rounded-end-0" />
-      </div>
-      <div class="col">
-        <input type="text" id="new-param-value" class="form-control rounded-start-0" />
-      </div>
-      <button type="button" id="new-param-btn" class="btn btn-secondary">
-        Apply
-      </button>
-    </div>
-    <hr />
-    <button class="btn btn-primary col-12">Update!</button>
-  </form>
-  <div class="container border rounded-1 p-0">
-    <img alt="result image" id="preview-img" src="" class="col-12" />
   </div>
+  
+  <hr class="mt-5" />
+  <p class="m-3">
+    <i class="bi bi-github fs-5"></i>
+    <a class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-offset-2-hover">
+      https://github.com/Sharlottes/embedPreviewer
+    </a>
+  </p>
 </div>
 `;
 

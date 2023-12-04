@@ -10,7 +10,8 @@ import { setupImportButton } from "./compControllers/importButton";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
 <div>
-  <div class="container mt-5">
+  <h1 class="text-center m-3"> Embed Previewer </h1>
+  <div class="container">
     <form class="container border rounded-1 p-2" id="preview-form">
       <div class="mb-4">
         <label for="base-url" class="form-label">API base URL</label>

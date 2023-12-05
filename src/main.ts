@@ -57,13 +57,14 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
       </div>
       <div class="input-group mt-3">
         <div class="col-3">
-          <input type="text" id="new-param-key" class="form-control bg-body-tertiary rounded-end-0" />
+          <input type="text" id="new-param-key" placeholder="key" class="form-control bg-body-tertiary rounded-end-0" />
         </div>
         <div class="col">
-          <input type="text" id="new-param-value" class="form-control rounded-start-0" />
+          <input type="text" id="new-param-value" placeholder="value" class="form-control rounded-start-0" />
         </div>
         <button type="button" id="new-param-btn" class="btn btn-secondary">
-          Apply
+        <span class="bi bi-plus"></span>
+          Add
         </button>
       </div>
       <hr />

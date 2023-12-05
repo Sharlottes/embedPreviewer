@@ -8,6 +8,7 @@ import addParamRow from "./utils/addParamRow";
 import { params } from "./global";
 import { setupImportButton } from "./compControllers/importButton";
 import { setupExportButton } from "./compControllers/exportButton";
+import "./compControllers/autoFocuser";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
 <div>
